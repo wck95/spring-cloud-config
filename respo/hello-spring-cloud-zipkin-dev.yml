@@ -1,7 +1,12 @@
 spring:
   application:
     name: hello-spring-cloud-zipkin
-
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+  main:
+    allow-bean-definition-overriding: true
 server:
   port: 9411
 
@@ -10,8 +15,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-management:
-  metrics:
-    web:
-      server:
-        auto-time-request: false
+
+
+
