@@ -6,6 +6,16 @@ spring:
 server:
   port: 8761
 
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 注意：此处在视频里是 include: ["health", "info"] 但已无效了，请修改
+        include: health,info
+
 eureka:
   instance:
     hostname: localhost
@@ -14,3 +24,4 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+

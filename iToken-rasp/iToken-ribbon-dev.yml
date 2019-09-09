@@ -6,10 +6,18 @@ spring:
 server:
   port: 8764
 
-
-
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        # 注意：此处在视频里是 include: ["health", "info"] 但已无效了，请修改
+        include: health,info
